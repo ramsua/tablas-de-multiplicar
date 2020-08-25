@@ -1,0 +1,105 @@
+/* Colors */
+:root{
+    --main-color: rgb(60,60,200);
+    --second-color: rgba(60,60,200,.15);
+}
+/* Measurements */
+:root{
+    --unit:calc(16px + .025vmin);
+}
+:root { box-sizing:border-box;}
+
+*,*::after,*::before { box-sizing:inherit; }
+body{
+    font-family: sans-serif;
+    color: #fff;
+}
+header{
+    color: var(--main-color);
+    text-align: center;
+}
+main{
+    display: grid;
+    gap: calc(var(--unit) / 2);
+    max-width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: calc(var(--unit) / 2);
+    background-color: var(--main-color);
+}
+.section{
+    padding: inherit;
+    background-color: #fff;
+}
+.section p{
+    margin: 0;
+    padding: calc(var(--unit) / 2);
+    text-align: center;
+    line-height:calc(var(--unit) * 1.25);
+    color: var(--main-color);
+}
+.section p:nth-child(odd){
+    background-color:var(--second-color);
+}
+form{
+    position: sticky;
+    top: calc(var(--unit) / 2);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--unit) / 3);
+    margin-right: auto;
+    margin-left: auto;
+    padding: calc(var(--unit) / 4);
+    background-color: var(--second-color);
+}
+form > *{
+    font-size: var(--unit);
+}
+label{
+    display: block;
+    padding: calc(var(--unit) / 2);
+    background-color: var(--main-color);
+}
+label:first-of-type{
+    grid-column: span 2;
+}
+input{
+    padding: calc(var(--unit) / 4);
+    width: 100%;
+    float: right;
+    border: none;
+}
+button{
+    display: block;
+    padding: calc(var(--unit) / 3);
+    font-size: 1em;
+    color: inherit;
+    border: none;
+    background-color: var(--main-color);
+    cursor: pointer;
+}
+@media screen and (min-width:450px){
+    input{
+        width: 50%;
+    }
+}
+@media screen and (min-width:570px){
+    main{
+        grid-template-columns: 1fr 1fr;
+    }
+    form > *{
+        grid-column: span 2;
+    }
+    button:first-of-type{
+        grid-column: 1 / 2;
+    }
+    button:last-of-type{
+        grid-column: 2 / 3;
+    }
+    input{
+        display: block;
+        margin-top: calc(var(--unit) / 2);
+        width: 100%;
+        font: none;
+    }
+}
